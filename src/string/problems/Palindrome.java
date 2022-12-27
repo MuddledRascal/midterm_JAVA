@@ -1,5 +1,7 @@
 package string.problems;
 
+import java.util.Scanner;
+
 public class Palindrome {
     public static void main(String[] args) {
         /*
@@ -7,5 +9,17 @@ public class Palindrome {
           Palindrome. So write java code to check if a given String is Palindrome or not.
          */
 
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("word:");
+        String str = scanner.next();
+        str = str.toLowerCase();
+        String rev = "";
+
+        for (int i = str.length() - 1; i >= 0; i--) {
+            rev = rev + str.charAt(i);
+        }
+        if (str.equals(rev)) {
+            System.out.println("the word is palindrome");
+        }
     }
 }

@@ -23,7 +23,7 @@ public class FindLowestDifference {
             minDiff2 = Math.min(minDiff2, array2[i]-array2[i-1]);
         }
         if(minDiff1 == minDiff2){
-            System.out.println("the minimium difference for both arrays is "+ minDiff2);
+            System.out.println("the minimum difference for both arrays is "+ minDiff2);
         }
         else {
             System.out.println("The Lowest Difference in Array1 is " + minDiff1 + " and the Lowest Difference in Array2 is " + minDiff2);
