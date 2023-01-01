@@ -29,5 +29,4 @@ public class FindLowestDifference {
             System.out.println("The Lowest Difference in Array1 is " + minDiff1 + " and the Lowest Difference in Array2 is " + minDiff2);
         }
     }
-
 }

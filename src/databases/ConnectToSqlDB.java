@@ -100,6 +100,24 @@ public class ConnectToSqlDB {
         }
     }
 
+    public void createSqlTableForStringArray(String tableName, String columnName)
+    {
+        try {
+            connectToSqlDatabase();
+            ps = connect.prepareStatement("DROP TABLE IF EXISTS `"+tableName+"`;");
+            ps.executeUpdate();
+            ps = connect.prepareStatement("CREATE TABLE `"+tableName+"` (`wordPlace` int(11) NOT NULL AUTO_INCREMENT, "+columnName+" varchar(255),  PRIMARY KEY (`wordPlace`) );");
+            ps.executeUpdate();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void insertDataFromStringToSqlTable(String ArrayData, String tableName, String columnName)
     {
         try {
@@ -137,10 +155,10 @@ public class ConnectToSqlDB {
     {
         try {
             connectToSqlDatabase();
-                ps = connect.prepareStatement("INSERT INTO "+tableName+" ( " + columnName1 + "," + columnName2 + " ) VALUES(?,?)");
-                ps.setString(1,"Ankita Sing");
-                ps.setInt(2,3590);
-                ps.executeUpdate();
+            ps = connect.prepareStatement("INSERT INTO "+tableName+" ( " + columnName1 + "," + columnName2 + " ) VALUES(?,?)");
+            ps.setString(1,"Ankita Sing");
+            ps.setInt(2,3590);
+            ps.executeUpdate();
 
 
         } catch (IOException e) {
@@ -182,15 +200,14 @@ public class ConnectToSqlDB {
     }
 
     public static void main(String[] args) throws Exception {
-//        List<User> list = readUserProfileFromSqlTable();
-//        for(User user:list){
-//            System.out.println(user.getStName() + " " + user.getStID()+ " " + user.getStDOB());
-//        }
-//        ConnectToSqlDB connectToSqlDB = new ConnectToSqlDB();
-//        List<String> students = connectToSqlDB.readDataBase("student", "name");
-//        for (String student: students){
-//            System.out.println(student);
-//        }
+        //    List<User> list = readUserProfileFromSqlTable();
+        //    for(User user:list){
+        //        System.out.println(user.getStName() + " " + user.getStID()+ " " + user.getStDOB());
+        //    }
+        //    ConnectToSqlDB connectToSqlDB = new ConnectToSqlDB();//   List<String> students = connectToSqlDB.readDataBase("students", "stName");
+        //    for (String student: students){
+        //        System.out.println(student);
+        //    }
 
 
     }
